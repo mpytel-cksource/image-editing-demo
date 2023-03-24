@@ -1,0 +1,47 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 20px;
+}
+
+button {
+    background: #FFF;
+    outline: none;
+    border: none;
+    font-family: Verdana, sans-serif;
+    padding: 5px 10px;
+    border: 1px solid #D0D0D0;
+    border-radius: 4px;
+}
+
+.header {
+    padding-bottom: 20px;
+}
+
+.results-container {
+    margin-top: 20px;
+    display: flex;
+    height:250px;
+    max-height: 500px;
+}
+
+.results-container .sharp-results-wrapper {
+    width: 50%;
+}
+
+.results-container .sharp-results-wrapper #sharp-result {
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    height: 100%;
+    margin: 10px 30px 10px 0;
+}
+
+.results-container .canvas-results-wrapper {
+    width: 50%;
+}
+
+.results-container .canvas-results-wrapper #canvas-result {
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    height: 100%;
+    margin: 10px 10px 10px 0;
+}
