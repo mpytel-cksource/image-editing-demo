@@ -2,7 +2,7 @@ import './styles.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Cropper from 'react-easy-crop'
-import { CroppedCanvas } from './CroppedCanvas';
+import { CanvasResult } from './CanvasResult';
 import { SharpResult } from './SharpResult';
 import { IMAGE_NAME, IMAGE_URL } from './constants';
 
@@ -20,12 +20,22 @@ const App = () => {
         setRotation(r => (r + 12) % 360);
     };
 
+    const handleImageResize = () => {
+        setTransformation((transformation: any) => ({
+            ...transformation,
+            resizeWidth: 650,
+            resizeHeight: 500
+        }));
+    };
+
     return (
         <div>
+            <h1>React Easy Crop demo</h1>
+
             <div className="header">
                 <button id="cropButton">Crop</button>
                 <button onClick={handleImageRotate}>Rotate</button>
-                <button id="resizeButton">Resize</button>
+                <button onClick={handleImageResize}>Resize</button>
             </div>
 
             <div className="cropper-wrapper">
@@ -42,7 +52,7 @@ const App = () => {
             </div>
 
             <div className="results-wrapper">
-                <CroppedCanvas src={IMAGE_URL} transformation={transformation} />
+                <CanvasResult src={IMAGE_URL} transformation={transformation} />
                 <SharpResult imageName={IMAGE_NAME} transformations={transformation} />
             </div>
         </div>

@@ -35,8 +35,5 @@ module.exports = {
             publicPath: '/assets'
         }
       },
-    mode: 'development',
-    experiments: {
-        asyncWebAssembly: true
-    }
+    mode: 'development'
 };

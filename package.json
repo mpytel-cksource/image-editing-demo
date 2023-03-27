@@ -1,13 +1,11 @@
 {
   "name": "image-editing-samples",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop all && pm2 delete all",
     "serve-cropper-demo": "webpack serve --config=webpack.cropperjs.config.js",
-    "start-cropper-demo": "pm2 start ecosystem.config.js",
-    "stop-cropper-demo": "pm2 stop ecosystem.config.js",
     "serve-reacteasycrop-demo": "webpack serve --config=webpack.reacteasycrop.config.js",
-    "start-cropper-demo": "pm2 start ecosystem.config.js",
-    "stop-cropper-demo": "pm2 stop ecosystem.config.js",
     "build": "webpack --config=webpack.cropperjs.config.js"
   },
   "dependencies": {

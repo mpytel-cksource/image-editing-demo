@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Transformation } from './types';
+import { IMAGE_EDITING_URL } from './constants';
 import axios from 'axios';
-const IMAGE_EDITING_URL: string = 'http://localhost:8000/image/';
+
 
 export const SharpResult: React.FC<Props> = ({
     imageName,
@@ -17,7 +18,7 @@ export const SharpResult: React.FC<Props> = ({
         _sendTransformationsToServer(imageName, {
             ...transformations,
             // @ts-ignore
-            rotate: transformations?.rotation
+            rotate: transformations?.rotate
         })
             .then(async result => {
                 const image = await _getCroppedImage(result.data);
@@ -60,7 +61,7 @@ const _sendTransformationsToServer = async (imageName: string, transformations: 
 const _getCroppedImage = (imageBuffer: ArrayBuffer) => {
     return new Promise<any>((resolve) => {
         const arrayBufferView = new Uint8Array( imageBuffer );
-        const blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
+        const blob = new Blob( [ arrayBufferView ], { type: 'image/jpeg' } );
         const urlCreator = window.URL || window.webkitURL;
         const imageUrl = urlCreator.createObjectURL( blob );
 

@@ -15,40 +15,8 @@ button {
 
 .header {
     padding-bottom: 20px;
-}
-
-.results-container {
-    margin-top: 20px;
     display: flex;
-    height:250px;
-    max-height: 500px;
-}
-
-.results-container .sharp-results-wrapper {
-    width: 50%;
-}
-
-.results-container .sharp-results-wrapper #sharp-result {
-    background-color: #F2F2F2;
-    border-radius: 5px;
-    height: 100%;
-    margin: 10px 30px 10px 0;
-}
-
-.results-container .canvas-results-wrapper {
-    width: 50%;
-}
-
-.results-container .canvas-results-wrapper #canvas-result {
-    background-color: #F2F2F2;
-    border-radius: 5px;
-    height: 100%;
-    margin: 10px 10px 10px 0;
-}
-
-/* */
-.header {
-    padding-bottom: 20px;
+    gap: 10px;
 }
 
 .result-wrapper {
@@ -74,12 +42,14 @@ button {
 
 .result {
     width: 50%;
+    margin: 5px;
 }
 
 .result-image {
     background-color: #F2F2F2;
     border-radius: 5px;
     height: 250px;
+    width: 100%;
     max-width: 100%;
     margin: 10px 10px 10px 0;
     object-fit: contain;

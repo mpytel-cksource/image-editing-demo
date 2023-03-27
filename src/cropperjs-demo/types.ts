@@ -3,7 +3,7 @@ export type Transformation = {
     y: number,
     width: number,
     height: number,
-    rotation: number,
-    resizeWidth?: number,
-    resizeHeight?: number
+    rotate: number,
+    scaleX: number,
+    scaleY: number
 };

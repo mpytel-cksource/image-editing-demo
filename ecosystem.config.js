@@ -11,9 +11,15 @@ module.exports = {
 			autorestart: false
 		},
 		{
+			name: 'react-easy-crop-app',
+			script: 'npm',
+			args: 'run serve-reacteasycrop-demo',
+			autorestart: false
+		},
+		{
 			name: 'sharp-server',
 			script: 'node',
-			args: './src/cropperjs-demo/server.js'
+			args: './src/server/server.js'
 		}
 	]
 };

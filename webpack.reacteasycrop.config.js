@@ -28,15 +28,12 @@ module.exports = {
     })],
     devServer: {
         compress: true,
-        port: 4137,
+        port: 4138,
         open: true,
         static: {
             directory: path.resolve(__dirname, './assets'),
             publicPath: '/assets'
         }
       },
-    mode: 'development',
-    experiments: {
-        asyncWebAssembly: true
-    }
+    mode: 'development'
 };

@@ -28,7 +28,7 @@ app.listen(PORT, () => {
 
 const _processBySharp = (inputImage, transformations) => {
     const sharpInstance = sharp(inputImage);
-    const { x, y, rotate, width, height, scaleX, scaleY, rWidth, rHeight } = transformations;
+    const { x, y, rotate, width, height, scaleX, scaleY, resizeWidth, resizeHeight } = transformations;
 
     // Apply rotation
     if (rotate) {
@@ -45,8 +45,8 @@ const _processBySharp = (inputImage, transformations) => {
         });
     }
 
-    if (rWidth && rHeight) {
-        sharpInstance.resize(rWidth, rHeight);
+    if (resizeWidth && resizeHeight) {
+        sharpInstance.resize(resizeWidth, resizeHeight);
     }
 
     return sharpInstance
