@@ -1,10 +1,10 @@
 // @ts-nocheck
 import Cropper from "cropperjs";
 import axios from 'axios';
-import CR from 'limby-resize/lib/canvas_resize';
-const cc = CR;
+import * as LimbyResize from 'limby-resize/lib/canvas_resize';
+const canvasResize = LimbyResize;
 const IMAGE_EDITING_URL: string = 'http://localhost:8000/image';
-import '../styles.css';
+import './styles.css';
 
 (() => {
     const image = document.getElementById("image");
@@ -59,6 +59,12 @@ interface ImageTransformations {
     y: number
 }
 
+/**
+ * Send CropperJS result transformation object to Express server, and
+ * display resulted image in a separate container.
+ * @param {CropperJS} cropperData
+ * @private
+ */
 const _displayResultImage = async (cropperData) => {
     const response = await sendTransformationsToServer(cropperData as ImageTransformations);
     const parent = document.querySelector('#sharp-result');
@@ -79,6 +85,12 @@ const _displayResultImage = async (cropperData) => {
     parent.appendChild(image);
 };
 
+/**
+ * Gets cropped canvas from CropperJS instance, and display result as an image
+ * in a separate container.
+ * @param {CropperJS} canvas Cropped canvas
+ * @private
+ */
 const _displayResultImageInCanvas = (canvas) => {
     const parent = document.querySelector('#canvas-result');
     const img = canvas.toDataURL('image/jpeg');
@@ -92,6 +104,12 @@ const _displayResultImageInCanvas = (canvas) => {
     parent.appendChild(image);
 };
 
+/**
+ * Gets original canvas from CropperJS instance, crops it via external lib (Limby resize), and
+ * displays its result as an image in a separate container.
+ * @param canvas Original canvas
+ * @private
+ */
 const _displayResizedResultImageInCanvas = (canvas) => {
     const parent = document.querySelector('#canvas-result');
     const resizedCanvas = document.createElement('canvas');
@@ -112,6 +130,11 @@ const _displayResizedResultImageInCanvas = (canvas) => {
     });
 };
 
+/**
+ * Sends CropperJS transformations object to Express server, where it will be later
+ * processed by Sharp.
+ * @param transformations
+ */
 const sendTransformationsToServer = async (transformations: ImageTransformations) => {
   return axios.post(
       IMAGE_EDITING_URL,

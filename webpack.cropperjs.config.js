@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/main.tsx',
+    entry: './src/cropperjs-demo/main.tsx',
     module: {
         rules: [
             {
@@ -24,7 +24,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'index.html'),
+        template: path.resolve(__dirname, 'src', 'cropperjs-demo', 'index.html'),
     })],
     devServer: {
         compress: true,

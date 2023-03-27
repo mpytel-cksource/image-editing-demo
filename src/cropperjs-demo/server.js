@@ -10,9 +10,10 @@ const ASSETS_PATH = path.join(process.cwd(), 'assets');
 app.use(express.json());
 app.use(cors());
 
-app.post('/image', async (req, res) => {
+app.post('/image/:imageName', async (req, res) => {
     const transformations = req.body;
-    const filePath = path.join(ASSETS_PATH, 'image_24MP.jpeg');
+    const imageName = req.params.imageName;
+    const filePath = path.join(ASSETS_PATH, imageName);
 
     const fileBuffer = await fs.readFile(filePath);
     const processedFile = await _processBySharp(fileBuffer, transformations);
@@ -35,7 +36,7 @@ const _processBySharp = (inputImage, transformations) => {
     }
 
     // Apply crop
-    if (x && y && width && height) {
+    if (Number.isInteger(x) && Number.isInteger(y) && Number.isInteger(width) && Number.isInteger(height)) {
         sharpInstance.extract({
             width,
             height,
