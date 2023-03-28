@@ -1,27 +1,16 @@
-# CKBox Webpack example
+# Image editing demo
 
 ## Quick start
 
-:warning: Please use your own `tokenUrl` before running the sample. See [documentation](https://ckeditor.com/docs/ckbox/latest/guides/configuration/authentication.html) for more info.
-
 ```
-npm install
+pnpm install
 ```
 
-Build sample:
+Run demo:
 
 ```
-npm run build
+pnpm start
 ```
 
-Serve sample:
-
-```
-npm start
-```
-
-Sample will be available at http://localhost:4137.
-
-## Documentation
-
-Please refer to our official [documentation](https://ckeditor.com/docs/ckbox/latest/guides/frameworks/other.html#ecmascript-export) for more info.
+Demo sample of CropperJS + Sharp will be available at http://localhost:4137.
+Demo sample of React-Easy-Crop + Sharp will be available at http://localhost:4138.

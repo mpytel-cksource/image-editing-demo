@@ -13,6 +13,7 @@ const App = () => {
     const [rotation, setRotation] = React.useState(0);
 
     const onCropComplete = React.useCallback((_: any, croppedAreaPixels: any) => {
+        debugger;
         setTransformation({ ...croppedAreaPixels, rotation });
     }, [rotation]);
 
